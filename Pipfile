@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 click = "*"
 selenium = "*"
+self = "*"
+webdriver-manager = "*"
+pandas = "*"
 
 [dev-packages]
 
