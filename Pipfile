@@ -9,6 +9,7 @@ selenium = "*"
 self = "*"
 webdriver-manager = "*"
 pandas = "*"
+jupyter = "*"
 
 [dev-packages]
 
