@@ -135,3 +135,5 @@ dmypy.json
 games_seeker/scraper/drivers/*driver*
 data/**/*.csv
 data/**/*.json
+reports/*.docx
+templates/*.docx

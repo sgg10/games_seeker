@@ -10,9 +10,10 @@ from deap import algorithms, base, creator, tools
 
 class GeneticSearch:
     COMPONENTS_ORDER = ("CPU", "Mother Board", "RAM", "Storage", "GPU", "Refrigeration", "Power Supply", "Chasis")
+    PRODUCT_INFO = ["title", "type", "price", "link"]
 
     def __init__(self, budget):
-        self.PRODUCTS = pd.read_csv("data/interim/pc_components.csv", sep="|")
+        self.PRODUCTS = pd.read_csv("data/interim/pc_components.csv", sep="|", encoding="utf-8")
         self.budget = budget
         self.toolbox = None
 

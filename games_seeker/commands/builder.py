@@ -1,6 +1,18 @@
+from datetime import datetime
+
 import click
+import numpy as np
+from docxtpl import DocxTemplate
 
 from games_seeker.pc_builder.genetic_search import GeneticSearch
+
+
+def generate_report(context, budget):
+    template = DocxTemplate("templates/template_builder.docx")
+    template.render(context)
+    date = datetime.now().strftime("%d-%m-%Y")
+    template.save(f"reports/builder_result_{budget}_{date}.docx")
+
 
 @click.command()
 @click.option('-b', '--budget', prompt=True, type=int)
@@ -27,10 +39,18 @@ def cli(budget, advance, number_results, iterations):
 
     results, _ = gs.run(cases, {"iterations": iterations})
 
-    output = [
-        gs.PRODUCTS.iloc[result, :]
-        for result in results.iloc[:number_results, 7]
-    ]
+    output = [gs.PRODUCTS.loc[result, gs.PRODUCT_INFO] for result in results.iloc[:number_results, 7]]
+    output = list(map(lambda x: {
+        "rows": list(map(lambda val: list(val), x.values)),
+        "headers": [h.upper() for h in x.columns],
+        "total": np.sum(x["price"].values)}, output)
+    )
 
-    print(output)
+    context = {
+        "results": output,
+        "date": datetime.now().strftime("%d-%m-%Y %H:%M")
+    }
 
+    generate_report(context, budget)
+
+    click.echo(click.style("✅ Report was created successfully ✅", fg="green"))
