@@ -134,3 +134,4 @@ dmypy.json
 # Custom
 games_seeker/scraper/drivers/*driver*
 data/**/*.csv
+data/**/*.json
