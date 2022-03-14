@@ -15,6 +15,7 @@ networkx = "*"
 product = "*"
 numpy = "*"
 docxtpl = "*"
+pytholog = "*"
 
 [dev-packages]
 

@@ -3,7 +3,7 @@ import click
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.webdriver import WebDriver
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 
 
 class Amazon(object):
@@ -15,8 +15,8 @@ class Amazon(object):
     @property
     def is_loaded(self):
         WebDriverWait(self._driver, 10).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "nav-search-field"))
-            or EC.presence_of_element_located((By.ID, "twotabsearchtextbox"))
+            ec.presence_of_element_located((By.CLASS_NAME, "nav-search-field"))
+            or ec.presence_of_element_located((By.ID, "twotabsearchtextbox"))
         )
         return True
 
@@ -35,10 +35,10 @@ class Amazon(object):
         self.type_search(keyword)
         self.click_submit()
 
-    def get_product(self, _id, page):
+    def get_product(self, _id):
         try:
             label = WebDriverWait(self._driver, 5).until(
-                EC.presence_of_element_located(
+                ec.presence_of_element_located(
                     (
                         By.XPATH,
                         f'//*[@id="search"]/div[1]/div[1]/div/span[3]/div[2]/div[{_id}]//h2/a/span'
@@ -46,7 +46,7 @@ class Amazon(object):
                 )
             )
             link = WebDriverWait(self._driver, 5).until(
-                EC.presence_of_element_located(
+                ec.presence_of_element_located(
                     (
                         By.XPATH,
                         f'//*[@id="search"]/div[1]/div[1]/div/span[3]/div[2]/div[{_id}]//h2/a'
@@ -54,7 +54,7 @@ class Amazon(object):
                 )
             )
             symbol = WebDriverWait(self._driver, 5).until(
-                EC.presence_of_element_located(
+                ec.presence_of_element_located(
                     (
                         By.XPATH,
                         f'//*[@id="search"]/div[1]/div[1]/div/span[3]/div[2]/div[{_id}]//span[@class="a-price-symbol"]'
@@ -62,7 +62,7 @@ class Amazon(object):
                 )
             )
             price = WebDriverWait(self._driver, 5).until(
-                EC.presence_of_element_located(
+                ec.presence_of_element_located(
                     (
                         By.XPATH,
                         f'//*[@id="search"]/div[1]/div[1]/div/span[3]/div[2]/div[{_id}]//span[@class="a-price-whole"]'
@@ -84,7 +84,7 @@ class Amazon(object):
 
             with click.progressbar(range(total_items + 1), label=f"Items of page {page}") as bar:
                 for i in bar:
-                    product = self.get_product(i, page)
+                    product = self.get_product(i)
                     if product:
                         data.append(product)
 
@@ -92,6 +92,6 @@ class Amazon(object):
             if next_button.get_attribute("aria-disabled") != "true":
                 next_button.click()
                 WebDriverWait(self._driver, 15).until(
-                    EC.presence_of_all_elements_located((By.CLASS_NAME, "s-card-container"))
+                    ec.presence_of_all_elements_located((By.CLASS_NAME, "s-card-container"))
                 )
         return data

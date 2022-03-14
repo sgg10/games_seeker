@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "454cd0d2422660e8096f10216042a24546c9ecee7754efd3775e2f5c1b403447"
+            "sha256": "cad2fca80485e1d2990ad75d333658aa2d0673427662b1179d5def49fe74f6ef"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -588,6 +588,14 @@
             ],
             "version": "==0.8.4"
         },
+        "more-itertools": {
+            "hashes": [
+                "sha256:43e6dd9942dffd72661a2c4ef383ad7da1e6a3e968a927ad7a6083ab410a688b",
+                "sha256:7dc6ad46f05f545f900dd59e8dfb4e84a4827b97b3cfecb175ea0c7d247f6064"
+            ],
+            "markers": "python_version >= '3.5'",
+            "version": "==8.12.0"
+        },
         "nbclient": {
             "hashes": [
                 "sha256:40c52c9b5e3c31faecaee69f202b3f53e38d7c1c563de0fadde9d7eda0fdafe8",
@@ -823,6 +831,14 @@
                 "sha256:3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"
             ],
             "version": "==1.7.1"
+        },
+        "pytholog": {
+            "hashes": [
+                "sha256:b726af28476df5935d8561ce964b7f7e1ba17e9d070b8c9b3da3fe993458893d",
+                "sha256:ef9b379dd21f755ee5e097e80ce1475e5581eb07d014157e1a76295faeded39f"
+            ],
+            "index": "pypi",
+            "version": "==2.4.1"
         },
         "python-dateutil": {
             "hashes": [
