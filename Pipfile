@@ -10,6 +10,11 @@ self = "*"
 webdriver-manager = "*"
 pandas = "*"
 jupyter = "*"
+deap = "*"
+networkx = "*"
+product = "*"
+numpy = "*"
+docxtpl = "*"
 
 [dev-packages]
 
