@@ -16,6 +16,7 @@ product = "*"
 numpy = "*"
 docxtpl = "*"
 pytholog = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
