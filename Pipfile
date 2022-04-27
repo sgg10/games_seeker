@@ -17,6 +17,8 @@ numpy = "*"
 docxtpl = "*"
 pytholog = "*"
 scikit-learn = "*"
+scikit-fuzzy = "*"
+matplotlib = "*"
 
 [dev-packages]
 

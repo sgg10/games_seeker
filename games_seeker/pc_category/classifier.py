@@ -23,7 +23,7 @@ class PCClassifier:
         }
         self.targets = {0: "Diseño", 1: "Gamer", 2: "Ofimatica"}
         self.regexs = {
-            "cpu": r"([3-9])-(\d{1})-([QBUHZ])",
+            "cpu": r"([3-9])-(\d{2})-([QBUHZ])",
             "gpu": r"((?:-1|(?:10|20|30)(?:30|40|50|60|70|80)))(-TI){0,1}"
         }
 
