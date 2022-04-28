@@ -19,6 +19,8 @@ pytholog = "*"
 scikit-learn = "*"
 scikit-fuzzy = "*"
 matplotlib = "*"
+yake = "*"
+nltk = "*"
 
 [dev-packages]
 
