@@ -1,3 +1,4 @@
+import sys
 import subprocess
 import yake
 import nltk
@@ -29,11 +30,12 @@ class NaturalLanguageController:
         nltk.download('averaged_perceptron_tagger')
         from nltk.corpus import wordnet as wn
         click.clear()
+        initial_command = ["games_seeker"] if "games_seeker" in sys.argv[0].split("/") else ["python", "main.py"]
         self.functions = {
-            "builder": lambda: subprocess.run(["python", "main.py", "builder"]),
-            "can_run_game": lambda: subprocess.run(["python", "main.py", "can_run_game"]),
-            "classifier": lambda: subprocess.run(["python", "main.py", "classifier"]),
-            "improver": lambda: subprocess.run(["python", "main.py", "improver"]),
+            "builder": lambda: subprocess.run(initial_command + ["builder"]),
+            "can_run_game": lambda: subprocess.run(initial_command + ["can_run_game"]),
+            "classifier": lambda: subprocess.run(initial_command + ["classifier"]),
+            "improver": lambda: subprocess.run(initial_command + ["improver"]),
         }
         ss = {
             "builder": [

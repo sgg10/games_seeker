@@ -8,7 +8,7 @@ class CLI(click.MultiCommand):
 
     def list_commands(self, ctx):
         rv = []
-        for filename in os.listdir("./games_seeker/commands"):
+        for filename in os.listdir("./commands"):
             if filename.endswith(".py") and not filename.startswith("__"):
                 rv.append(filename.replace('.py', ''))
         rv.sort()
